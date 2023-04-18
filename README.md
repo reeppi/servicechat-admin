@@ -9,6 +9,7 @@ Ylläpito edellyttää Googlen tunnuksia<br>
 Backend: https://github.com/reeppi/servicechat-backend<br>
 Client: https://github.com/reeppi/servicechat<br>
 <br>
+![Screenshot](screenshot.png)<br>
 Avainsanat :  React, Typescript, websockets<br>
 <hr>
 tuomas.kokki@outlook.com
