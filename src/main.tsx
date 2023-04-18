@@ -24,6 +24,11 @@ const Main = observer(() => {
             console.log("-->"+code);
             fetchToken(code);
         }
+        if ( service.getToken() != "null")
+        {
+            service.logIn();
+            service.openChat();
+        }
     }, []); 
 
     const fetchToken = async (code :string)=> { 
@@ -41,14 +46,16 @@ const Main = observer(() => {
         <>
             <div>Hei</div>
             <Button onClick={()=>window.open(apiUrl+'/auth/google','_self')}> <img src={logoGoogle}/>Login via google</Button>
+            <PadTop/>
+            {service.logged && <Button onClick={()=>{ service.logOut()}}> Logout</Button> }
             {service.msg} - {service.logged.toString()}
             <PadTop/>
-            Select chat site
+            Select your chat site
             {
                 service.loadingChats && <div style={{display:"flex",justifyContent:"center"}}><Spinner animation="border" variant="primary"/></div>
             }
             {
-                !service.loadingChats && service.chatList.map( (e:any,index:number)=>
+                !service.loadingChats && service.logged && service.chatList.map( (e:any,index:number)=>
                     <div key={index}> 
                     <InputGroup>
                     <Button style={{width:"90%"}} onClick={ (x:any)=>{joinChat(e.chat);}}>{e.chat}</Button>
@@ -57,7 +64,7 @@ const Main = observer(() => {
                     <PadTop/></div> )
             }
             <CreateChat/>
-            <Chat/>
+            { service.logged && <Chat/> }
         </>
     )
 }

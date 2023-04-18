@@ -112,6 +112,7 @@ class service {
     logOut()
     {
         window.sessionStorage.removeItem("JWT",); 
+        this.ws.close();
         this.logged=false;
     }
 
