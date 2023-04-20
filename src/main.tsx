@@ -44,13 +44,12 @@ const Main = observer(() => {
 
     return (
         <>
-            <div>Hei</div>
-            <Button onClick={()=>window.open(apiUrl+'/auth/google','_self')}> <img src={logoGoogle}/>Login via google</Button>
+            <Button onClick={()=>window.open(apiUrl+'/auth/google','_self')}> <img src={logoGoogle}/>Login with google</Button>
             <PadTop/>
             {service.logged && <Button onClick={()=>{ service.logOut()}}> Logout</Button> }
-            {service.msg} - {service.logged.toString()}
+            {service.msg}
             <PadTop/>
-            Select your chat site
+            {service.logged && <>Select your chat site</>}
             {
                 service.loadingChats && <div style={{display:"flex",justifyContent:"center"}}><Spinner animation="border" variant="primary"/></div>
             }
@@ -76,7 +75,7 @@ const CreateChat = () => {
     return (
         service.getToken()!="null"?
         <>
-        <Form.Label style={{width:"80%"}} htmlFor="createChat">Create new chat site</Form.Label>
+        <Form.Label style={{width:"80%"}} htmlFor="createChat">Create a new chat site</Form.Label>
         <InputGroup>
             <Form.Control id="createChat"  onChange={(e)=>{ setNewChat(e.target.value);}}  type="text"/>
             <Button onClick={ ()=>{service.createChat(newChat);}} style={{width:"20%"}} >New!</Button>

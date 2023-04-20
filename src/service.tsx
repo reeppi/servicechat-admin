@@ -137,8 +137,9 @@ class service {
       var url;
       if (  window.location.hostname == "localhost" ) 
             url= "ws://localhost:3001";
-        else 
-            url= "wss://vast-falls-13808.herokuapp.com";
+        else
+            url= "wss://servicechat-backend.fly.dev";
+      
       this.ws=new WebSocket(url);
       this.ws.onopen = (e:any) =>
       {
