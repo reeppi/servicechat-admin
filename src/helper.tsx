@@ -1,7 +1,7 @@
 const getApiUrl = () => {
   console.log("apiurl");
   if (  window.location.hostname == "servicechat.netlify.app" ) 
-    return "https://servicechat-backend.netlify.app";
+    return "https://servicechat-backend.fly.dev";
   else 
     return "http://localhost:3001";
 }
