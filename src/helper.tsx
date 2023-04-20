@@ -1,7 +1,7 @@
 const getApiUrl = () => {
   console.log("apiurl");
-  if (  window.location.hostname == "tietovisa.netlify.app" ) 
-    return "https://reeppi-quiz.netlify.app";
+  if (  window.location.hostname == "servicechat.netlify.app" ) 
+    return "https://servicechat-backend.netlify.app";
   else 
     return "http://localhost:3001";
 }
