@@ -31,6 +31,14 @@ class service {
         makeAutoObservable(this);
     }
 
+    getApiUrl = () => {
+      console.log("apiurl");
+      if (  window.location.hostname == "servicechat.netlify.app" ) 
+        return "https://servicechat-backend.fly.dev";
+      else 
+        return "http://localhost:3001";
+    }
+
     setChatActive(value:boolean)
     {
       this.chatActive=value;
@@ -196,14 +204,6 @@ class service {
             break;
         }     
       };
-    }
-
-    getApiUrl = () => {
-      console.log("apiurl");
-      if (  window.location.hostname == "tietovisa.netlify.app" ) 
-        return "https://webservicechat.netlify.app";
-      else 
-        return "http://localhost:3001";
     }
 
     getChatlist = async () =>

@@ -7,7 +7,7 @@ import logoGoogle from './images/google_logo.png';
 import logoFacebook from './images/facebook_logo.png';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Button } from 'react-bootstrap';
-import { apiUrl, PadTop} from './helper';
+import { PadTop} from './helper';
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -44,7 +44,7 @@ const Main = observer(() => {
 
     return (
         <>
-            <Button onClick={()=>window.open(apiUrl+'/auth/google','_self')}> <img src={logoGoogle}/>Login with google</Button>
+            <Button onClick={()=>window.open(service.getApiUrl()+'/auth/google','_self')}> <img src={logoGoogle}/>Sign in with google</Button>
             <PadTop/>
             {service.logged && <Button onClick={()=>{ service.logOut()}}> Logout</Button> }
             {service.msg}
