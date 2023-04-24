@@ -17,6 +17,7 @@ const Main = observer(() => {
     const [searchParams] = useSearchParams();
 
     useEffect ( () => { 
+        document.title ="Servicechat";
         var code=searchParams.get("code");
         if (code) 
         {
@@ -57,7 +58,7 @@ const Main = observer(() => {
                 !service.loadingChats && service.logged && service.chatList.map( (e:any,index:number)=>
                     <div key={index}> 
                     <InputGroup>
-                    <Button style={{width:"90%"}} onClick={ (x:any)=>{joinChat(e.chat);}}>{e.chat}</Button>
+                    <Button variant={service.chat == e.chat?"info":"primary"} style={{width:"90%"}} onClick={ (x:any)=>{joinChat(e.chat);}}>{e.chat}</Button>
                     <Button variant="danger" onClick={ ()=>{service.deleteChat(e.chat)}} style={{width:"10%"}} >X</Button>
                     </InputGroup>
                     <PadTop/></div> )

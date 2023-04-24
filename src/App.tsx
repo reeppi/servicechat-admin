@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Router>
-    <div style={{justifyContent:"center",display:"flex"}}><h2>webservicechat</h2></div>
+    <div style={{justifyContent:"center",display:"flex"}}><h2>Servicechat</h2></div>
     <div style={{justifyContent:"center",display:"flex"}}>
     <div className="Page">
       <Routes>

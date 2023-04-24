@@ -18,10 +18,10 @@ const Chat = observer(() => {
     */
     return (
     <>
-     <Form.Check  type="switch" id="keep" label="Leave chat open after user disconnect" onChange={(e)=>service.setChatActive(e.target.checked)} checked={service.chatActive}/>
+     <Form.Check  type="switch" id="keep" label="Keep chat open after user disconnect" onChange={(e)=>service.setChatActive(e.target.checked)} checked={service.chatActive}/>
      <Form.Label htmlFor="nameBox">Nimesi</Form.Label>
      <Form.Control id="nameBox" type="text"/>
-     Chat :     <strong>{service.chat}</strong>
+     Chat :  {service.chat}
    
     { 
          Array.from(service.chatMap.keys()).map( (e:any)=><ChatEntry key={e} user={e}/> )
@@ -49,6 +49,7 @@ const ChatEntry = observer( (props:any) => {
     const sendMsg = () =>
     {
         service.sendMsg("Tupi",props.user,msg);
+        setMsg("");
     }
 
 
@@ -74,7 +75,7 @@ const ChatEntry = observer( (props:any) => {
     <div style={{display:"flex"}}>
             <InputGroup>
             <FloatingLabel controlId="floatingInput" label="chat viesti" >
-            <Form.Control onKeyDown={e => keyDown(e) } onKeyUp={e => { keyH.current=false; } } maxLength={20} value={msg}  onChange={(e)=>{ setMsg(e.target.value);}} placeholder="chat viesti"/>
+            <Form.Control onKeyDown={e => keyDown(e) } onKeyUp={e => { keyH.current=false; } } maxLength={200} value={msg}  onChange={(e)=>{ setMsg(e.target.value);}} placeholder="chat viesti"/>
             </FloatingLabel>
             <Button disabled={service.getOpenChatActiveMode(props.user)?false:true} onClick={()=>{ sendMsg(); }}>Send</Button>
         </InputGroup>
